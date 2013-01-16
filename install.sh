@@ -20,7 +20,7 @@ while true ; do
     fi
   done
 
-  read choice
+  read -p  "Indicate your action..." choice
   echo "installing: ${comps[$choice]}"
   ./components/${comps[$choice]} --install
 done
