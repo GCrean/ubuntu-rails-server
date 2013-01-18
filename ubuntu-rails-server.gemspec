@@ -1,14 +1,19 @@
 # -*- encoding: utf-8 -*-
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require './lib/version'
 
-Gem::Specification.new do |s|
-  s.name        = 'ubuntu-rails-server'
-  s.version     = '0.0.1'
-  s.date        = '2013-01-18'
-  s.summary     = "Capistrano recipies for installing a Rails application server on Ubuntu"
-  s.description = "Capistrano recipies for installing a Rails application server on Ubuntu. Stack includes nginx, unicorn, postgres and ruby1.9.3"
-  s.authors     = ["Jean le Roux", "Greg Sauderson", "Rowan Smith"]
-  s.email       = 'jean@shuntyard.co.za'
-  s.homepage    = 'https://github.com/Shuntyard/ubuntu-rails-server.git'
-
-  s.files        = Dir.glob("{config}/**/*") + %w(README.md)
+Gem::Specification.new do |gem|
+  gem.name        = 'ubuntu-rails-server'
+  gem.version     = UbuntuRailsServer::VERSION
+  gem.summary     = "Capistrano recipies for installing a Rails application server on Ubuntu"
+  gem.description = "Capistrano recipies for installing a Rails application server on Ubuntu. Stack includes nginx, unicorn, postgres and ruby1.9.3"
+  gem.authors     = ["Jean le Roux", "Greg Sauderson", "Rowan Smith"]
+  gem.email       = 'jean@shuntyard.co.za'
+  gem.homepage    = 'https://github.com/Shuntyard/ubuntu-rails-server.git'
+  gem.files       = `git ls-files`.split($/)
+  gem.executables   = gem.filegem.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.filegem.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ["lib"]
 end
+
