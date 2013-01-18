@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 Gem::Specification.new do |s|
   s.name        = 'ubuntu-rails-server'
   s.version     = '0.0.1'
@@ -6,6 +8,7 @@ Gem::Specification.new do |s|
   s.description = "Capistrano recipies for installing a Rails application server on Ubuntu. Stack includes nginx, unicorn, postgres and ruby1.9.3"
   s.authors     = ["Jean le Roux", "Greg Sauderson", "Rowan Smith"]
   s.email       = 'jean@shuntyard.co.za'
-  s.files       = ["config/recipies/*"]
   s.homepage    = 'https://github.com/Shuntyard/ubuntu-rails-server.git'
+
+  s.files        = Dir.glob("{config}/**/*") + %w(README.md)
 end
